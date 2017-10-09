@@ -102,7 +102,6 @@ class LustreHost(ssh_host.SSHHost):
                               service_name, self.sh_hostname)
                 if service_name in cluster_services:
                     service = cluster_services[service_name]
-                    service = cluster_services[service_name]
                     logging.error("two hosts [%s] and [%s] for service [%s]",
                                   service.ls_host.sh_hostname,
                                   self.sh_hostname, service_name)
