@@ -319,15 +319,16 @@ class LustreHost(ssh_host.SSHHost):
                           retval.cr_stderr)
             return -1
         self.lh_lustre_version_string = retval.cr_stdout.strip()
-        version_pattern = (r"^(?P<major>\d+)\.(?P<minor>\d+)\.(?P<patch>\d+)\."
-                           r"(?P<fix>\d+)$")
+        #version_pattern = (r"^(?P<major>\d+)\.(?P<minor>\d+)\.(?P<patch>\d+)\."
+        #                   r"(?P<fix>\d+)$")
+        version_pattern = (r"^(?P<major>\d+)\.(?P<minor>\d+)\.(?P<patch>\d+)")
         version_regular = re.compile(version_pattern)
         match = version_regular.match(self.lh_lustre_version_string)
         if match:
             self.lh_lustre_version_major = int(match.group("major"))
             self.lh_lustre_version_minor = int(match.group("minor"))
             self.lh_lustre_version_patch = int(match.group("patch"))
-            self.lh_lustre_version_fix = int(match.group("fix"))
+            #self.lh_lustre_version_fix = int(match.group("fix"))
         else:
             logging.error("unexpected version string format: %s",
                           self.lh_lustre_version_string)

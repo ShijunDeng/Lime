@@ -1,6 +1,6 @@
 {
     "cluster": {
-        "name": "ltest",
+        "name": "lustrefs",
         "hosts": [
             {
                 "name": "server1"
