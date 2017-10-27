@@ -577,7 +577,7 @@ class LustreHost(ssh_host.SSHHost):
                           retval.cr_stderr)
             return -1
         retlist = retval.cr_stdout.split()
-        logging.error(retlist)
+        logging.debug(retlist)
         #max_iops = 0
         if retlist[1] == "GB/s" :
             max_iops = float(retlist[0]) * 1000
